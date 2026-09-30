@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Duka Books, with Wispy AI</title>
+<meta name="description" content="A sample invoicing app with Wispy AI embedded: ask out loud and Wispy shows you where to click.">
+<link rel="icon" href="wispy-cloud.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="duka.css">
+</head>
+<body>
+  <aside>
+    <div class="logo"><span>DB</span>Duka Books</div>
+    <nav>
+      <p class="nav-label">Money</p>
+      <button data-wispy="nav-invoices" data-view="invoices" class="on"><svg class="i" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 256 256"><path d="M224,128a8,8,0,0,1-8,8H128a8,8,0,0,1,0-16h88A8,8,0,0,1,224,128ZM128,72h88a8,8,0,0,0,0-16H128a8,8,0,0,0,0,16Zm88,112H128a8,8,0,0,0,0,16h88a8,8,0,0,0,0-16ZM82.34,42.34,56,68.69,45.66,58.34A8,8,0,0,0,34.34,69.66l16,16a8,8,0,0,0,11.32,0l32-32A8,8,0,0,0,82.34,42.34Zm0,64L56,132.69,45.66,122.34a8,8,0,0,0-11.32,11.32l16,16a8,8,0,0,0,11.32,0l32-32a8,8,0,0,0-11.32-11.32Zm0,64L56,196.69,45.66,186.34a8,8,0,0,0-11.32,11.32l16,16a8,8,0,0,0,11.32,0l32-32a8,8,0,0,0-11.32-11.32Z"></path></svg>Invoices</button>
+      <button data-wispy="nav-payments" data-view="payments"><svg class="i" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 256 256"><path d="M224,48H32A16,16,0,0,0,16,64V192a16,16,0,0,0,16,16H224a16,16,0,0,0,16-16V64A16,16,0,0,0,224,48Zm0,16V88H32V64Zm0,128H32V104H224v88Zm-16-24a8,8,0,0,1-8,8H168a8,8,0,0,1,0-16h32A8,8,0,0,1,208,168Zm-64,0a8,8,0,0,1-8,8H120a8,8,0,0,1,0-16h16A8,8,0,0,1,144,168Z"></path></svg>Payments</button>
+      <p class="nav-label">People</p>
+      <button data-wispy="nav-customers" data-view="customers"><svg class="i" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 256 256"><path d="M200,112a8,8,0,0,1-8,8H152a8,8,0,0,1,0-16h40A8,8,0,0,1,200,112Zm-8,24H152a8,8,0,0,0,0,16h40a8,8,0,0,0,0-16Zm40-80V200a16,16,0,0,1-16,16H40a16,16,0,0,1-16-16V56A16,16,0,0,1,40,40H216A16,16,0,0,1,232,56ZM216,200V56H40V200H216Zm-80.26-34a8,8,0,1,1-15.5,4c-2.63-10.26-13.06-18-24.25-18s-21.61,7.74-24.25,18a8,8,0,1,1-15.5-4,39.84,39.84,0,0,1,17.19-23.34,32,32,0,1,1,45.12,0A39.76,39.76,0,0,1,135.75,166ZM96,136a16,16,0,1,0-16-16A16,16,0,0,0,96,136Z"></path></svg>Customers</button>
+      <p class="nav-label">Shop</p>
+      <button data-wispy="nav-settings" data-view="settings"><svg class="i" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 256 256"><path d="M227.32,73.37,182.63,28.69a16,16,0,0,0-22.63,0L36.69,152A15.86,15.86,0,0,0,32,163.31V208a16,16,0,0,0,16,16H216a8,8,0,0,0,0-16H115.32l112-112A16,16,0,0,0,227.32,73.37ZM92.69,208H48V163.31l88-88L180.69,120ZM192,108.69,147.32,64l24-24L216,84.69Z"></path></svg>Settings</button>
+    </nav>
+    <p class="demo-note"><b>This is a sample app.</b> Duka Books is made up so you can try Wispy AI safely. Nothing here sends real invoices or money.</p>
+  </aside>
+
+  <div>
+    <header class="top">
+      <div class="search"><svg class="i" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 256 256"><path d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z"></path></svg>Search invoices, customers…</div>
+      <div class="who">Kamau General Store <b>KG</b></div>
+    </header>
+    <main>
+      <section class="view on" data-view="invoices">
+        <div class="head"><div><p class="crumb">Invoices / New invoice</p><h1>Invoice INV-0042</h1></div></div>
+        <div class="kpis">
+          <div class="card kpi"><p>Paid this month</p><strong>KES 48,300</strong><small>12 invoices</small></div>
+          <div class="card kpi"><p>Still owed</p><strong>KES 13,040</strong><small class="warn">2 overdue</small></div>
+          <div class="card kpi"><p>Sent this week</p><strong>7</strong><small>3 viewed</small></div>
+          <div class="card chart"><p>Paid by month</p><div class="bars"><i style="height:38%"></i><i style="height:52%"></i><i style="height:44%"></i><i style="height:70%"></i><i style="height:61%"></i><i style="height:88%"></i></div><div class="months"><span>Apr</span><span>May</span><span>Jun</span><span>Jul</span><span>Aug</span><span>Sep</span></div></div>
+        </div>
+        <div class="grid">
+          <div class="card sheet">
+            <div class="sheet-head"><h2>Invoice details</h2><span class="status">Draft</span></div>
+            <div class="row">
+              <div><label for="customer">Customer</label><select id="customer" data-wispy="field-customer" aria-label="Customer"><option>Mama Njeri Groceries</option><option>Otieno Hardware</option><option>Wanjiku Salon</option></select></div>
+              <div><label for="due">Due date</label><input id="due" data-wispy="field-due-date" aria-label="Due date" value="14 Oct 2026"></div>
+            </div>
+            <table>
+              <thead><tr><th>Item</th><th class="n">Qty</th><th class="n">Price</th><th class="n">Amount (KES)</th></tr></thead>
+              <tbody id="lines"></tbody>
+            </table>
+            <div class="add-line">
+              <div><label for="item">New item</label><input id="item" data-wispy="field-item" aria-label="New item" placeholder="e.g. Tea leaves, 500 g"></div>
+              <div><label for="qty">Quantity</label><input id="qty" data-wispy="field-quantity" aria-label="Quantity" inputmode="numeric" placeholder="1"></div>
+              <div><label for="price">Price (KES)</label><input id="price" data-wispy="field-price" aria-label="Price" inputmode="numeric" placeholder="0"></div>
+              <button class="btn" data-wispy="add-line">Add line</button>
+            </div>
+            <div class="total"><span>Total</span><span id="total">KES 0</span></div>
+            <div class="actions">
+              <button class="btn" data-wispy="save-draft">Save draft</button>
+              <button class="btn" data-wispy="preview">Preview</button>
+              <button class="btn primary" data-wispy="send-invoice" data-wispy-risky="sends the invoice to the customer">Send invoice</button>
+            </div>
+          </div>
+          <div class="card side">
+            <h3>Latest payments</h3>
+            <div class="pay"><b>OH</b><span>Otieno Hardware<small>M-Pesa · Today</small></span><em>4,500</em></div>
+            <div class="pay"><b>WS</b><span>Wanjiku Salon<small>Bank · Mon</small></span><em>3,200</em></div>
+            <div class="pay"><b>MN</b><span>Mama Njeri<small>M-Pesa · 22 Sep</small></span><em>6,100</em></div>
+            <div class="pay"><b>KB</b><span>Kibe Butchery<small>Cash · 20 Sep</small></span><em>2,750</em></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="view" data-view="customers">
+        <div class="head"><div><p class="crumb">Customers</p><h1>Customers</h1></div><button class="btn primary" data-wispy="new-customer">New customer</button></div>
+        <div class="card sheet">
+          <table>
+            <thead><tr><th>Name</th><th>Phone</th><th class="n">Owes (KES)</th></tr></thead>
+            <tbody>
+              <tr><td>Mama Njeri Groceries</td><td>0712 000 111</td><td class="n">9,840</td></tr>
+              <tr><td>Otieno Hardware</td><td>0722 000 222</td><td class="n">0</td></tr>
+              <tr><td>Wanjiku Salon</td><td>0733 000 333</td><td class="n">3,200</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="view" data-view="payments">
+        <div class="head"><div><p class="crumb">Payments</p><h1>Payments</h1></div><div style="display:flex; gap:10px"><button class="btn" data-wispy="export-payments">Export to Excel</button><button class="btn primary" data-wispy="record-payment">Record a payment</button></div></div>
+        <div class="card sheet">
+          <table>
+            <thead><tr><th>Invoice</th><th>Customer</th><th>Status</th><th class="n">Amount (KES)</th></tr></thead>
+            <tbody>
+              <tr><td>INV-0041</td><td>Otieno Hardware</td><td><span class="pill paid">Paid by M-Pesa</span></td><td class="n">4,500</td></tr>
+              <tr><td>INV-0040</td><td>Wanjiku Salon</td><td><span class="pill due">Due in 3 days</span></td><td class="n">3,200</td></tr>
+              <tr><td>INV-0039</td><td>Mama Njeri Groceries</td><td><span class="pill sent">Sent</span></td><td class="n">6,100</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="view" data-view="settings">
+        <div class="head"><div><p class="crumb">Settings</p><h1>Settings</h1></div></div>
+        <div class="card sheet">
+          <div class="row">
+            <div><label for="biz">Business name</label><input id="biz" data-wispy="field-business-name" aria-label="Business name" value="Kamau General Store"></div>
+            <div><label for="mpesa">M-Pesa till number</label><input id="mpesa" data-wispy="field-till-number" aria-label="M-Pesa till number" value="512 345"></div>
+          </div>
+          <div class="actions"><button class="btn primary" data-wispy="save-settings">Save settings</button></div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <script>
+    const lines = [
+      { item: "Maize flour, 2 kg", qty: 20, price: 180 },
+      { item: "Cooking oil, 1 L", qty: 12, price: 320 },
+      { item: "Sugar, 1 kg", qty: 15, price: 160 },
+    ];
+    const money = (value) => value.toLocaleString("en-KE");
+    function render() {
+      document.getElementById("lines").innerHTML = lines.map((line) => `<tr><td>${line.item}</td><td class="n">${line.qty}</td><td class="n">${money(line.price)}</td><td class="n">${money(line.qty * line.price)}</td></tr>`).join("");
+      document.getElementById("total").textContent = `KES ${money(lines.reduce((sum, line) => sum + line.qty * line.price, 0))}`;
+    }
+    function toast(text) {
+      const shown = document.getElementById("toast");
+      shown.textContent = text;
+      shown.classList.add("show");
+      setTimeout(() => shown.classList.remove("show"), 2600);
+    }
+    function show(view) {
+      document.querySelectorAll(".view").forEach((section) => section.classList.toggle("on", section.dataset.view === view));
+      document.querySelectorAll("nav button").forEach((button) => button.classList.toggle("on", button.dataset.view === view));
+    }
+    document.querySelectorAll("nav button").forEach((button) => button.addEventListener("click", () => show(button.dataset.view)));
+    document.querySelector('[data-wispy="add-line"]').addEventListener("click", () => {
+      const item = document.getElementById("item").value.trim();
+      const qty = Number(document.getElementById("qty").value.replace(/[^\d.]/g, "")) || 1;
+      const price = Number(document.getElementById("price").value.replace(/[^\d.]/g, "")) || 0;
+      if (!item) return toast("Type an item first.");
+      lines.push({ item, qty, price });
+      ["item", "qty", "price"].forEach((id) => (document.getElementById(id).value = ""));
+      render();
+      toast(`Added ${item}.`);
+    });
+    document.querySelector('[data-wispy="save-draft"]').addEventListener("click", () => toast("Draft saved."));
+    document.querySelector('[data-wispy="preview"]').addEventListener("click", () => toast("Preview opens here in a real app."));
+    document.querySelector('[data-wispy="send-invoice"]').addEventListener("click", () => toast(`Sample invoice sent to ${document.getElementById("customer").value}. Nothing real was sent.`));
+    document.querySelector('[data-wispy="new-customer"]').addEventListener("click", () => toast("A new customer form opens here."));
+    document.querySelector('[data-wispy="record-payment"]').addEventListener("click", () => toast("A payment form opens here."));
+    document.querySelector('[data-wispy="export-payments"]').addEventListener("click", () => toast("Export starts here in a real app."));
+    document.querySelector('[data-wispy="save-settings"]').addEventListener("click", () => toast("Settings saved."));
+    render();
+  </script>
+  <script src="wispy.js" data-token-url="/api/token" data-greeting="" defer></script>
+</body>
+</html>
